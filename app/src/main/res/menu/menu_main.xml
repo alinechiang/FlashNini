@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_sign_in"
+        android:icon="@drawable/ic_bunny_smily"
         android:title="Sign In"
         android:orderInCategory="100"
-        android:showAsAction="never" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_sync"
+        android:icon="@drawable/ic_flower"
         android:title="Sync"
         android:orderInCategory="101"
-        android:showAsAction="never" />
+        app:showAsAction="never" />
 
     <!-- More menu items can be added here -->
 </menu>
