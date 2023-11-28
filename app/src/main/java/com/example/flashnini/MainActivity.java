@@ -1,15 +1,12 @@
 package com.example.flashnini;
 
-import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.widget.ListView;
-import android.database.Cursor;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-
-    private FlashcardDbHelper dbHelper;
-    private CustomListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,19 +15,32 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        ListView listView = findViewById(R.id.list_view);
-        dbHelper = new FlashcardDbHelper(this);
-
-        // Load flashcards from database
-        Cursor cursor = dbHelper.getAllFlashcards();
-        adapter = new CustomListAdapter(this, cursor); // Modify adapter to use Cursor
-        listView.setAdapter(adapter);
-
-        // Other setup including ListView item click listeners
     }
 
-    // Rest of MainActivity including showAddNewItemDialog and addNewFlashcard methods
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_sign_in:
+                // Handle sign in action
+                return true;
+            case R.id.action_sync:
+                // Handle sync action
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
+
 
 
